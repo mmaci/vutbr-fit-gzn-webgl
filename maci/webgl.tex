@@ -103,15 +103,20 @@ unicode=true,
 \newpage
 \section{Herní enginy}
 
-Jednou z nejpopulárnějších oblastí, zažívající svůj růst v posledních letech kolem WebGL, jsou herní enginy, technologie a různé další frameworky. Výhodou webu jako platformy pro počítačové hry je, že je závislá pouze na internetovém prohlížeči. Nevyžaduje žádné speciální runtimy, není závislá na operačním systému a není třeba nic instalovat. Stačí pouze otevřít prohlížeč, napsat url adresu a hrát. Jedná se tak o řešení vhodná především pro výpočetně jednodušší úkoly.
+Jednou z nejpopulárnějších oblastí, zažívající svůj růst v posledních letech kolem WebGL, jsou herní enginy, technologie a různé další frameworky. Výhodou webu jako platformy pro počítačové hry je, že je závislá pouze na internetovém prohlížeči. Nevyžaduje žádné speciální runtimy, není závislá na operačním systému a není třeba nic instalovat. Stačí pouze otevřít prohlížeč, napsat url adresu a hrát. Jedná se tak o řešení vhodná především pro výpočetně jednodušší úkoly a tedy hlavně 2D hry.
 
 \subsection{Přehled používaných knihoven a enginů}
 
 \subsubsection{Construct 2}
 
-Příkladem čeho lze dosáhnout s HTML5 a WebGL je herní 2D editor Construct 2. Nejedná se tak o knihovnu, ale o editor, který již generuje výsledný kód, exportovatelný pro velké množství platforem - HTML5, Chrome, Facebook, Windows Phone nebo i Android či iOS pomocí wrapperů jako CocoonJS.
+\url{https://www.scirra.com/construct2}
 
-Nástroj není vhodný pro tvorbu komplexnějších aplikací, spíše jednoduchých her typu Space Invaders, Pac-Man (Pampuch), Tetris. Na druhou stranu nevyžaduje žádnou programátorskou znalost,  je časově nenáročný a hodí se na prototypování.
+\begin{itemize}
+	\item 2D herní editor
+	\item exportovatelné na platformy: HTML5, Chrome, Facebook, Windows Phone nebo přes wrappery jako CocoonJS na Android či iOS
+	\item časově nenáročný vývoj vhodný pro prototypování nebo neprogramátory (není třeba prog. znalostí)
+	\item jednoduché hry (Space Invaders, Pac-Man, Tetris, ...)
+\end{itemize}
 
 \begin{figure}[ht]
 \begin{center}
@@ -122,6 +127,34 @@ Nástroj není vhodný pro tvorbu komplexnějších aplikací, spíše jednoduch
 \end{figure}
 
 Při tvorbě aplikace v editoru vytváříte objekty a těm přiřazujete podmínky a následné akce. Nejčastěji se jedná o sprajty, tedy 2D obrázky, ale jako objekty se chovají i vstupní zařízení jako myš nebo klávesnice nebo formulářové prvky. Editor umí pracovata i s AJAXem nebo WebSockets, umožňuje tedy i multiplayer hry a používání databází.
+
+\subsection{Three.js}
+
+\subsection{Enchant.js}
+
+\subsection{pixi.js}
+
+\subsection{Isogenic}
+
+\url{http://www.isogenicengine.com/}
+
+\begin{itemize}
+	\item client-server herní engine specializovaný na multiplayer a masivně hrané multiplayer hry
+	\item využívá Node.js, MongoDB, není však náhradou pro HTTP server
+	\item mocní síťová komunikace umožnující na jednotlivé klienty streamovat události nebo i celé grafické objekty
+	\item jednoduché kreslící funkce (DOM-based nebo Canvas based)
+\end{itemize}
+
+\subsection{další WebGL herní enginy}
+
+\subsection{Export pomocí Emscriptem/asm.js z jiných herních enginů}
+
+\section{Srovnání WebGL a OpenGL}
+
+\section{Bezpečnost WebGL}
+
+\section{Zajímavé projekty}
+
 
 \bibliographystyle{plain}
 
