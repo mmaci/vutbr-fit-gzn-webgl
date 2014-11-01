@@ -98,6 +98,49 @@ unicode=true,
 
 % ----- obsah -------------------------------------------------------------
 \newpage
+
+\section{Charakteristika}
+WebGL je multiplatformní volně dostupný standard, který se využívá pro graficky náročnější aplikace na webových stránkách. Díky využití grafického výkonu počítače lze implementovat i náročnější grafické aplikace. Uživateli stačí pouze prohlížeč, který WebGL podporuje (v současnosti všechny hlavní prohlížeče) a na rozdíl od jiných technologií nemusí instalovat žádné další podpůrné nástroje. Specifikaci WebGL si vzala na starost konsorcium Khronos Group (členové pracovní skupiny, která se zabývá vývojem standardu WebGL jsou například Google, Mozzila, Opera, Apple a další). Mezi nejznámější aplikace využívající WebGL patří Google mapy \cite{maps}.      
+
+\section{Historický přehled}
+\begin{itemize}
+	\item[2006] Vladimír Vukićević vytvořil první 3D prototyp pomocí elementu canvas \cite{history}.
+	\item[2007] Mozzila Firefox a Opera podporují WebGL \cite{history}.
+	\item[2009] Khronos group se zabývá vytvořením oficiální specifikace WebGL.
+	\item[2011] První oficialní specifikace WebGL 1.0 (OpenGL ES 2.0)\cite{history}.
+	\item[2013] Specifikace WebGL 2.0 (OpenGL ES 3.0) \cite{history2}.
+\end{itemize}
+
+\section{Vlastnosti}
+WebGL je nízko úrovňové API, které vychází ze standardu OpenGL ES (určeno pro vestavěné zařízení). Kvůli tomuto je i pro jednoduchou aplikaci potřeba napsat mnoho řádků kódu. Díky mnoha existujícím knihovnám však tento problém částečně odpadá. Přímý přístup k hardwaru také představuje určitá bezpečnostní rizika. V současnosti jsou dostupné dvě verze WebGL a to WebGL 1.0.2, která vychází ze standardu OpenGL ES 2.0 a WebGL 2.0, která vychází ze standardu OpenGL ES 3.0. Pomocí WebGL je možné programovat shadery jazykem GLSL. Na webové stránce je pak aplikace WebGL zobrazena pomocí elementu canvas (je integrováno s DOM) \cite{khronos}.
+
+\subsection{Výhody}
+\begin{itemize}
+	\item Velice rozšířené, mnoho knihoven
+	\item Funguje téměř na všech zařízeních s internetovým prohlížečem	
+	\item Založeno na standardu OpenGL ES
+  \item Nizkoúrovňové API (rychlost, plně v rukou programátora)
+  \item Není potřeba dalších vyvojovích nástrojů
+\end{itemize}
+\subsection{Nevýhody}
+\begin{itemize}
+	\item Nizkoúrovňové API (i pro jednoduchou aplikaci nutno využít mnoho instrukcí)
+	\item Bezpečnostní rizika	
+\end{itemize}
+
+\section{Zajímavé projekty}
+Zajimavé projekty
+Existuje mnoho ukázkových aplikací či převedených aplikací do technologie WebGL (budou uvedeny níže). Z těch reálně využívaných stojí za zmínku Google Maps \cite{maps} a ZygoteBody \cite{zygotebody}. 
+
+\section{Alternativy}
+Alternativa srovnatelná s WebGL neexistuje. Jsou dostupné některé projekty (Unity3D, SilverLight 3D, \dots), které je možné po doinstalování pluginů a jiných knihoven umístit i na webovou stránku, většinu z nich však není možné zprovoznit na mobilních zařízeních.
+
+\section{Budoucnost}
+\begin{itemize}
+	\item Podpora OpenGL ES 3.1 a výpočetních shaderů \cite{future}.
+	\item Dostupnost WebGL ve všech mobilníh prohlížečích \cite{future}.	
+\end{itemize}
+
 \section{Herní enginy}
 
 Jednou z nejpopulárnějších oblastí, zažívající svůj růst v posledních letech kolem WebGL, jsou herní enginy, technologie a různé další frameworky. Výhodou webu jako platformy pro počítačové hry je, že je závislá pouze na internetovém prohlížeči. Nevyžaduje žádné speciální runtimy, není závislá na operačním systému a není třeba nic instalovat. Stačí pouze otevřít prohlížeč, napsat url adresu a hrát. Jedná se tak o řešení vhodná především pro výpočetně jednodušší úkoly a tedy 
