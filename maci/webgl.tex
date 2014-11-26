@@ -114,7 +114,7 @@ WebGL je multiplatformní volně dostupná knihovna, která se využívá pro gr
 \section{Vlastnosti}
 WebGL je nízko úrovňové API, které vychází ze standardu OpenGL ES (určeno pro vestavěné zařízení). Kvůli tomuto je i~pro jednoduchou aplikaci potřeba napsat mnoho řádků kódu. Díky mnoha existujícím knihovnám však tento problém částečně odpadá. Přímý přístup k~hardwaru také představuje určitá bezpečnostní rizika. V~současnosti jsou dostupné dvě verze WebGL a~to WebGL 1.0.2, která vychází ze standardu OpenGL ES 2.0 a~WebGL 2.0, která vychází ze standardu OpenGL ES 3.0. Pomocí WebGL je možné programovat shadery jazykem GLSL. Na webové stránce je pak aplikace WebGL zobrazena pomocí elementu canvas (je integrováno s~DOM) \cite{khronos}.
 
-\subsection{Výhody}
+\subsubsection{Výhody}
 \begin{itemize}
 	\item Velice rozšířené, mnoho knihoven
 	\item Funguje téměř na všech zařízeních s~internetovým prohlížečem	
@@ -122,7 +122,7 @@ WebGL je nízko úrovňové API, které vychází ze standardu OpenGL ES (určen
   \item Nízkoúrovňové API (rychlost, plně v~rukou programátora)
   \item Není potřeba dalších vývojových nástrojů
 \end{itemize}
-\subsection{Nevýhody}
+\subsubsection{Nevýhody}
 \begin{itemize}
 	\item Nízkoúrovňové API (i~pro jednoduchou aplikaci nutno využít mnoho instrukcí)
 	\item Bezpečnostní rizika	
@@ -136,6 +136,24 @@ Existuje mnoho ukázkových aplikací či převedených aplikací do technologie
 	\item Podpora OpenGL ES 3.1 a~výpočetních shaderů \cite{future}.
 	\item Dostupnost WebGL ve všech mobilních prohlížečích \cite{future}.	
 \end{itemize}
+
+\section{Bezpečnost WebGL a~podpora IE}
+
+V~roce 2011 Microsoft oznámil, že WebGL nebude podporovat \cite{arstechnica}. Tvrdil, že samotné WebGL je nebezpečné jen svým návrhem. Důvody můžou být následující
+
+\begin{itemize}
+	\item \textbf{Undefined behaviour} -- např. čtení pixelů mimo framebuffer
+	\item \textbf{Přístup do nealokované paměti}
+	\item \textbf{Shadery} -- shadery musí být před předáním grafické kartě validovány
+	\item \textbf{DoS} -- scéna trvá velkou dobu vykreslit, počítač tak může přestat reagovat
+	\item \textbf{Čtení obrázků a~videí z~cizích zdrojů} -- dle specifikace umožněno pouze, pokud je zdroj validován přes CORS (\cite{cors})
+\end{itemize}
+
+Výše zmíněné jsou příklady bezpečnostních rizik, které můžou nastat při implementaci v~jednotlivých prohlížečích a~počítač uživatele tak může být napaden, typicky přestane reagovat \cite{security}.
+
+Asi nejznámějším bezpečnostním problémem WebGL se stalo vykradení grafické paměti uživatele \cite{gstealing} a~tím pádem pořízení screenshotů citlivých dat.
+
+S~IE11 Microsoft již oznámil, že WebGL podporovat bude \cite{ie11}. Pravděpodobně pod tlakem konkurence (Firefox, Chrome, Opera), která již technologii dávno podporovala. WebGL v~IE11 běží zapouzdřené pod DirectX, což umožňuje v~případě, že nastane některá z~výše zmíněných bezpečnostních děr, obnovit systém uživatele, v~případě, že vypadne.
 
 \section{Alternativy}
 Existují některé projekty (Unity3D, SilverLight 3D, \dots), které je možné po doinstalování pluginů a~jiných knihoven umístit i~na webovou stránku, většinu z~nich však není možné zprovoznit na mobilních zařízeních. Pro vykreslení grafiky na webu je možné využít tyto technologie: 
@@ -160,6 +178,8 @@ Existují některé projekty (Unity3D, SilverLight 3D, \dots), které je možné
 
 
 
+
+
 \begin{figure}[ht]
 \begin{center}
 
@@ -180,14 +200,14 @@ hlavně 2D hry.
 
 Na trhu dnes existuje obrovské množství různých knihoven, především pro tvorbu 2D grafiky. Vybrány jsou perspektivní projekty, které bychom doporučili používat.
 
-\paragraph{O3D})
+\paragraph{O3D}
 
 \begin{itemize}
 	\item Engine pro 3D aplikace
 	\item Usnadňuje práci s grafem scény, texturami, shadery, \dots	
 	\item Vytvořen v roce 2009 firmou Google (nutné doinstalovat plugin)
 	\item V roce 2010 přepsán jako Javascriptová vrstva nad WebGL
-	\item Od roku 2011 se nevyužívá (převážně nahrazen knihovnou Three.js)
+	\item Od roku 2011 se nevyužívá (je využívána spíše knihovna Three.js)
 \end{itemize}
 
 \paragraph{Construct 2}  \cite{construct2}
@@ -241,7 +261,7 @@ Při tvorbě aplikace v~editoru vytváříte objekty a~těm přiřazujete podmí
 	\item jednoduché kreslící funkce (DOM-based nebo Canvas based), nevyužívá WebGL, ale to lze zprostředkovat pomocí jiných knihoven
 \end{itemize}
 
-\subsubsection{Závěr}
+\section{Na závěr ke knihovnám}
 
 Každou z~předchozích knihoven jsme vyhodnotili jako nejvhodnější pro to co dělá. Pokud máte skvělý nápad a~neumíte programovat nebo chcete vytvořit hru za odpoledne, doporučili bychom Construct2. Pro 2D je pak pixi.js, pro 3D naopak three.js. Jako poslední je zmíněn i~Isogenic, což je jeden z~nejperspektivnějších projektů pro masivně hrané multiplayer hry a~lze ho kombinovat i~s~výše zmíněnými knihovnami.
 
@@ -288,24 +308,6 @@ Byly portnuty i~aplikace založené na Qt nebo i~jiných programovacích jazycí
 \label{fig:theory}
 \end{center}
 \end{figure}
-
-\section{Bezpečnost WebGL a~podpora IE}
-
-V~roce 2011 Microsoft oznámil, že WebGL nebude podporovat \cite{arstechnica}. Tvrdil, že samotné WebGL je nebezpečné jen svým návrhem. Důvody můžou být následující
-
-\begin{itemize}
-	\item \textbf{Undefined behaviour} -- např. čtení pixelů mimo framebuffer
-	\item \textbf{Přístup do nealokované paměti}
-	\item \textbf{Shadery} -- shadery musí být před předáním grafické kartě validovány
-	\item \textbf{DoS} -- scéna trvá velkou dobu vykreslit, počítač tak může přestat reagovat
-	\item \textbf{Čtení obrázků a~videí z~cizích zdrojů} -- dle specifikace umožněno pouze, pokud je zdroj validován přes CORS (\cite{cors})
-\end{itemize}
-
-Výše zmíněné jsou příklady bezpečnostních rizik, které můžou nastat při implementaci v~jednotlivých prohlížečích a~počítač uživatele tak může být napaden, typicky přestane reagovat \cite{security}.
-
-Asi nejznámějším bezpečnostním problémem WebGL se stalo vykradení grafické paměti uživatele \cite{gstealing} a~tím pádem pořízení screenshotů citlivých dat.
-
-S~IE11 Microsoft již oznámil, že WebGL podporovat bude \cite{ie11}. Pravděpodobně pod tlakem konkurence (Firefox, Chrome, Opera), která již technologii dávno podporovala. WebGL v~IE11 běží zapouzdřené pod DirectX, což umožňuje v~případě, že nastane některá z~výše zmíněných bezpečnostních děr, obnovit systém uživatele, v~případě, že vypadne.
 	
 
 \bibliographystyle{plain}
